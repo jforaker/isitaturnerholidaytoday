@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-const holidays = [
+export const holidays = [
   '2/18/2019',
   '5/27/2019',
   '7/04/2019',
@@ -13,31 +13,35 @@ const holidays = [
   '12/25/2019'
 ];
 
-function convert(date) {
+export function convert(date) {
   return date.toLocaleDateString();
 }
 
-export const NextHead = () => (
-  <Head>
-    <title>isitaturnerholidaytoday 🤔</title>
-    <meta charSet="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-  </Head>
-);
+export function NextHead() {
+  return (
+    <Head>
+      <title>isitaturnerholidaytoday 🤔</title>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
+  );
+}
 
-export const Tomorrow = () => (
-  <div className="tomorrow">
-    <p>Tomorrow is a holiday. Enjoy your sleep 😴</p>
-    <style jsx>{`
-      .tomorrow {
-        text-align: center;
-      }
-      .tomorrow p {
-        font: 16px Helvetica, Arial, sans-serif;
-      }
-    `}</style>
-  </div>
-);
+export function Tomorrow() {
+  return (
+    <div className="tomorrow">
+      <p>Tomorrow is a holiday. Enjoy your sleep 😴</p>
+      <style jsx>{`
+        .tomorrow {
+          text-align: center;
+        }
+        .tomorrow p {
+          font: 16px Helvetica, Arial, sans-serif;
+        }
+      `}</style>
+    </div>
+  );
+}
 
 export default class Index extends React.Component {
   static async getInitialProps() {
