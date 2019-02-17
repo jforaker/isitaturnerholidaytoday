@@ -1,0 +1,16 @@
+{
+  "name": "isitaturnerholidaytoday",
+  "version": "1.0.1",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "NODE_ENV=production next start",
+    "deploy": "yarn build && now && now alias"
+  },
+  "dependencies": {
+    "next": "^8.0.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  },
+  "license": "ISC"
+}

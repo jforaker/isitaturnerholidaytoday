@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "name": "isitaturnerholidaytoday",
+  "alias": "isitaturnerholidaytoday",
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
+}
