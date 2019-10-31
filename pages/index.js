@@ -43,25 +43,25 @@ export function Tomorrow() {
   );
 }
 
-export default class Index extends React.Component {
-  static async getInitialProps() {
-    const today = new Date();
-    const isHoliday = holidays.includes(convert(today));
-    const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
-    const tmrwIsHoliday = holidays.includes(convert(tomorrow));
-    return {
-      isHoliday: isHoliday ? 'YES' : 'NO',
-      tmrwIsHoliday
-    };
-  }
+const getData = (() => {
+  const today = new Date();
+  const isHoliday = holidays.includes(convert(today));
+  const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
+  const tmrwIsHoliday = holidays.includes(convert(tomorrow));
+  return {
+    isHoliday: isHoliday ? 'YES' : 'NO',
+    tmrwIsHoliday
+  };
+})();
 
+export default class Index extends React.Component {
   render() {
     return (
-      <div>
+      <>
         <NextHead />
         <p className="isit">is it a Turner holiday today?</p>
-        <p className="answer">{this.props.isHoliday}</p>
-        {this.props.tmrwIsHoliday && <Tomorrow />}
+        <p className="answer">{getData.isHoliday}</p>
+        {getData.tmrwIsHoliday && <Tomorrow />}
         <style jsx>{`
           .isit {
             font: 16px Helvetica, Arial, sans-serif;
@@ -73,7 +73,7 @@ export default class Index extends React.Component {
             text-align: center;
           }
         `}</style>
-      </div>
+      </>
     );
   }
 }
